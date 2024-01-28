@@ -1,11 +1,12 @@
+from collections import defaultdict
+
 class Solution:
-    def finalValueAfterOperations(self, operations: List[str]) -> int:
-        x = 0
-        for cur_excution in operations:
-            #if '+' in cur_excution:
-            if '+' == cur_excution[1]:
-                x += 1
-            else:
-                x -= 1
-        return x
-                
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        seen = defaultdict(int)
+        answer = 0
+        for num in nums:
+            if num in seen:
+                answer += seen[num]
+            seen[num] += 1
+        return answer
+        
