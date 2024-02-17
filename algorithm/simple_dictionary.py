@@ -2,6 +2,17 @@ from typing import Any
 
 #-*- coding: utf-8 -*-
 class SimpleDictionary:
+    """
+    딕셔너리 구현체로, 해시 테이블을 사용하여 키-값 쌍을 저장.
+    
+    속성:
+        _MAX_VALUE_FOR_LOAD_FACTOR (int): 재해싱이 발생하기 전 최대 로드 팩터값. 이 값을 넘어가면 재해싱 진행.
+        _MULTIPLY_VALUE_FOR_REHASHING (int): 재해싱 시 버킷 크기를 확장하는 배수.
+    
+    매개변수:
+        default_size (int): 딕셔너리의 초기 버킷 크기. 기본값은 1009로, 소수로 지정함.
+    """
+    
     _MAX_VALUE_FOR_LOAD_FACTOR: int = 0.7
     _MULTIPLY_VALUE_FOR_REHASHING: int = 2
     
@@ -54,9 +65,9 @@ class SimpleDictionary:
         index = self._hash(key)
         if buckets[index]:
             for key_and_value in buckets[index]:
-                    if key_and_value[0] == key:
-                        key_and_value[1] = value
-                        return
+                if key_and_value[0] == key:
+                    key_and_value[1] = value
+                    return
         buckets[index].append([key, value])
         self._num_of_keys += 1
         
