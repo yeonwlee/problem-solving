@@ -1,4 +1,4 @@
-#https://leetcode.com/problems/determine-color-of-a-chessboard-square/submissions/
+#https://leetcode.com/problems/determine-color-of-a-chessboard-square/
 #https://yeonwlee.github.io/posts/problemsolving-leetcode-1812-determine-color-of-a-chessboard-square/
 
 class Solution:
